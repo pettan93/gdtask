@@ -86,6 +86,7 @@ public class WordServiceImpl implements WordService {
         return words.stream().map(this::save).collect(Collectors.toList());
     }
 
+    @Transactional
     @Override
     public Collection<Word> registerForbiddenWords(Collection<Word> words) {
         var existingForbidden = wordRepository.findByForbiddenTrue();

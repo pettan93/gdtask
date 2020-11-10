@@ -56,7 +56,8 @@ public class SentenceController {
         var sentence = sentenceService.getById(id);
         var stats = sentenceStatsService.getStatsBySentence(sentence);
         return ResponseEntity.ok(Objects.requireNonNull(
-                conversionService.convert(sentence, SentenceDto.class)).fillStats(stats)
+                conversionService.convert(sentence, SentenceDto.class))
+                .fillStats(stats)
         );
     }
 

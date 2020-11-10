@@ -1,11 +1,13 @@
 # task
 
+### Prerequisites
+ - Docker
+ - JDK 11
 
 #### How to build
 
-
 ```
-gradle test bootJar
+gradlew test bootJar
 ```
 
 #### How to run
@@ -36,7 +38,12 @@ lazy;adjective
 
 ### API
 
-#### Words endpoint
+##### GET /
+```
+{
+    "message": "Service alive! Ready to generate sentences based on rules : 3 words total with given types of words in order: noun, verb, adjective"
+}
+```
 
 ##### GET /words
 Response

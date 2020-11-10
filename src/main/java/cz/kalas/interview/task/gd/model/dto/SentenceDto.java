@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 /**
  * @see Sentence
  */
-
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeName("sentence")

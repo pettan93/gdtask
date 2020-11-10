@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -56,6 +57,7 @@ public class SentenceServiceImpl implements SentenceService {
         return ids.map(idMap::get);
     }
 
+    @Transactional
     @Override
     public Sentence generate() {
         var sentence = sentenceFactory.createSentence();

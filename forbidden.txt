@@ -1,4 +1,4 @@
 trump;noun
-lost;verb
-victoriously;adjective
+seems;verb
+sad;adjective
 

@@ -31,11 +31,11 @@ java -jar build\libs\gd-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=db
 Forbidden words loaded during startup from a file **forbidden.txt** located in project root directory (file also copied to Docker image).
 Words should be in following csv format:
 ```
-dog;noun
-bark;verb
-lazy;adjective
+trump;noun
+seems;verb
+sad;adjective
 ```
-
+These words are also forbidden by default.
 ### API
 
 ##### GET /

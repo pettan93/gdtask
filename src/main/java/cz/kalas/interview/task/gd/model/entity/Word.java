@@ -14,6 +14,9 @@ import java.util.function.Function;
 @Setter
 @NoArgsConstructor
 @Entity
+@Table(uniqueConstraints={
+        @UniqueConstraint(columnNames = {"text", "word_category"})
+})
 public class Word {
 
     @Id

@@ -47,7 +47,8 @@ public class WordControllerIntegrationTest {
                 .perform(get("/sentences"))
                 .andExpect(status().isOk())
                 .andExpect(json().isEqualTo(("[]")));
-        assertThat(wordRepository.findAll(), hasSize(0));
+        var forbiddenWordsCount = wordRepository.findByForbiddenTrue().size();
+        assertThat(wordRepository.findAll(), hasSize(forbiddenWordsCount));
     }
 
     @Test
@@ -63,7 +64,8 @@ public class WordControllerIntegrationTest {
                 .andExpect(json().isPresent())
                 .andReturn().getResponse().getContentAsString();
 
-        assertThat(wordRepository.findAll(), hasSize(dummySentenceCount));
+        var forbiddenWordsCount = wordRepository.findByForbiddenTrue().size();
+        assertThat(wordRepository.findAll(), hasSize(dummySentenceCount + forbiddenWordsCount));
         assertThatJson(json).isArray().hasSize(dummySentenceCount);
     }
 

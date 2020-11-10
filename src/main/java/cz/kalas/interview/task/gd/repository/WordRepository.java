@@ -14,8 +14,8 @@ import java.util.Optional;
 
 public interface WordRepository extends JpaRepository<Word, Long>, PagingAndSortingRepository<Word, Long> {
 
-    @Override
-    Page<Word> findAll(Pageable pageable);
+
+    Page<Word> findAllByForbiddenFalse(Pageable pageable);
 
     Optional<Word> findByText(String text);
 
@@ -24,6 +24,8 @@ public interface WordRepository extends JpaRepository<Word, Long>, PagingAndSort
     List<Word> findByWordCategory(WordCategory category);
 
     List<Word> findByForbiddenTrue();
+
+    List<Word> findByForbiddenFalse();
 
     @Query(value =
             "SELECT * FROM word w WHERE w.forbidden = false AND " +

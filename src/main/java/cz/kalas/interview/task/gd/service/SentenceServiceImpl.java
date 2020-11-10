@@ -59,14 +59,12 @@ public class SentenceServiceImpl implements SentenceService {
     @Override
     public Sentence generate() {
         var sentence = sentenceFactory.createSentence();
-
         if (!sentenceValidator.isValid(sentence)) {
             throw new SentenceStructureException("Structure of randomly generated sentence is malformed", sentence);
         }
 
         var savedSentence = sentenceRepository.save(sentence);
         sentenceStatsService.incrementDisplayCount(savedSentence);
-
         return savedSentence;
     }
 

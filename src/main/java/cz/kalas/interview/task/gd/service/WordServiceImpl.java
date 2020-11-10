@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import java.util.Collection;
@@ -30,12 +31,12 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Collection<Word> getAll() {
-        return wordRepository.findAll();
+        return wordRepository.findByForbiddenFalse();
     }
 
     @Override
     public Page<Word> getAllPageable(Integer pageNumber, Integer pageSize) {
-        return wordRepository.findAll(PageRequest.of(pageNumber, pageSize));
+        return wordRepository.findAllByForbiddenFalse(PageRequest.of(pageNumber, pageSize));
     }
 
     @Override
@@ -56,6 +57,7 @@ public class WordServiceImpl implements WordService {
      * @param word Word to store
      * @return Stored word
      */
+    @Transactional
     @Override
     public Word save(Word word) {
         word.normalize(this::normalize);

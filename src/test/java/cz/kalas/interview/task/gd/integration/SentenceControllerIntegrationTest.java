@@ -177,7 +177,7 @@ public class SentenceControllerIntegrationTest {
     }
 
     @Test
-    public void cantGeneratedIdenticalSentences() throws Exception {
+    public void canGenerateIdenticalSentences() throws Exception {
         var validSentence = TestUtils.getDummySentences(sentenceFactory, 1).get(0);
         wordService.saveAll(validSentence.getUsedWords()
                 .stream().map(WordSentenceUsage::getWord)
@@ -189,6 +189,18 @@ public class SentenceControllerIntegrationTest {
         this.mockMvc.perform(post("/sentences/generate"));
 
         assertThat(sentenceRepository.findAll(), hasSize(4));
+    }
+
+    @Test
+    public void cantGenerateSentencesFromForbiddenWords() throws Exception {
+        var validSentence = TestUtils.getDummySentences(sentenceFactory, 1).get(0);
+        wordService.registerForbiddenWords(validSentence.getUsedWords()
+                .stream().map(WordSentenceUsage::getWord)
+                .collect(Collectors.toList()));
+
+        this.mockMvc.perform(post("/sentences/generate"));
+
+        assertThat(sentenceRepository.findAll(), hasSize(0));
     }
 
 

@@ -23,6 +23,8 @@ public interface WordRepository extends JpaRepository<Word, Long>, PagingAndSort
 
     List<Word> findByWordCategory(WordCategory category);
 
+    List<Word> findByForbiddenTrue();
+
     @Query(value =
             "SELECT * FROM word w WHERE w.forbidden = false AND " +
                     " w.word_category = :#{#wordCategory.ordinal()} ORDER BY random() LIMIT 1;",

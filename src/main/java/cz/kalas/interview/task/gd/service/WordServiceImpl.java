@@ -86,9 +86,12 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Collection<Word> registerForbiddenWords(Collection<Word> words) {
+        var existingForbidden = wordRepository.findByForbiddenTrue();
         log.info("Storing {} forbidden words", words.size());
         return wordRepository.saveAll(words.stream()
                 .map(w -> w.normalize(this::normalize))
+                .peek(w -> w.setForbidden(true))
+                .filter(w -> !existingForbidden.contains(w))
                 .collect(Collectors.toList()));
     }
 

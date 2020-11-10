@@ -1,0 +1,3 @@
+trump;noun
+victoriously;adjective
+lost;verb

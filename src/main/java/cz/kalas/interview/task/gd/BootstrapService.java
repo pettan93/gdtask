@@ -1,5 +1,6 @@
 package cz.kalas.interview.task.gd;
 
+import cz.kalas.interview.task.gd.domain.word.WordFileLoad;
 import cz.kalas.interview.task.gd.model.WordCategory;
 import cz.kalas.interview.task.gd.model.entity.Sentence;
 import cz.kalas.interview.task.gd.model.entity.Word;
@@ -13,6 +14,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -23,6 +25,8 @@ import java.util.stream.IntStream;
 @Service
 @RequiredArgsConstructor
 public class BootstrapService {
+
+    public static String FORBIDDEN_WORDS_FILENAME = "forbidden.txt";
 
     private final WordRepository wordRepository;
 
@@ -35,6 +39,11 @@ public class BootstrapService {
     @EventListener(ApplicationReadyEvent.class)
     public void applicationPreparedEventListener() {
 
+        wordService.registerForbiddenWords(
+                new WordFileLoad(new File(FORBIDDEN_WORDS_FILENAME)).getWords()
+        );
+
+
 //        List<Word> words = generateRandomWords(20);
 //        int step = 100000;
 //        for (int i = 0; i < words.size(); i = i + step) {
@@ -43,11 +52,11 @@ public class BootstrapService {
 //
 //        generateSentences(10);
 
+
 //        wordService.registerForbiddenWords(List.of(
 //                new Word("fuck", WordCategory.VERB, true),
 //                new Word("whore", WordCategory.NOUN, true)
 //        ));
-
 
 //        List<Word> words = generateRandomWords(2_000_000);
 //        int step = 100_000;

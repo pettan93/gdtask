@@ -13,6 +13,8 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static net.javacrumbs.jsonunit.spring.JsonUnitResultMatchers.json;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -114,5 +116,22 @@ public class WordControllerIntegrationTest {
         assertThatJson(json).inPath("$.word.wordCategory").asString()
                 .isEqualTo(dummyWord.getWordCategory().name().toUpperCase());
     }
+
+    @Test
+    public void cantStoreForbiddenWord() throws Exception {
+        var dummyWord = TestUtils.getDummyWord(WordCategory.VERB);
+        wordService.registerForbiddenWords(List.of(dummyWord));
+
+        var json = this.mockMvc
+                .perform(put("/words/" + dummyWord.getText())
+                        .content("{ \"word\": { \"wordCategory\": \"VERB\" } }")
+                        .contentType(APPLICATION_JSON))
+                .andExpect(status().is4xxClientError())
+                .andExpect(json().isPresent())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThatJson(json).isObject().containsKey("error");
+    }
+
 
 }

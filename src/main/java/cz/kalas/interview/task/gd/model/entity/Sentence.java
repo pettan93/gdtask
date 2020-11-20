@@ -25,7 +25,8 @@ import java.util.stream.IntStream;
 public class Sentence {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SENTENCE_SEQ_GENERATOR")
+    @SequenceGenerator(name = "SENTENCE_SEQ_GENERATOR", sequenceName = "SENTENCE_SEQ", allocationSize = 100_000)
     private Long id;
 
     private LocalDateTime created;
@@ -55,7 +56,6 @@ public class Sentence {
                 .collect(Collectors.joining(" "));
     }
 
-    // TOSO
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

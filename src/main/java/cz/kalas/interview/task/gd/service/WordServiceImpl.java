@@ -5,7 +5,7 @@ import cz.kalas.interview.task.gd.exception.ForbiddenWordException;
 import cz.kalas.interview.task.gd.exception.NotFoundException;
 import cz.kalas.interview.task.gd.model.WordCategory;
 import cz.kalas.interview.task.gd.model.entity.Word;
-import cz.kalas.interview.task.gd.repository.WordRepository;
+import cz.kalas.interview.task.gd.repository.word.WordRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -83,7 +83,9 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Collection<Word> saveAll(Collection<Word> words) {
-        return words.stream().map(this::save).collect(Collectors.toList());
+        return words.stream()
+                .map(this::save)
+                .collect(Collectors.toList());
     }
 
     @Transactional

@@ -5,7 +5,7 @@ import cz.kalas.interview.task.gd.domain.sentence.SentenceValidator;
 import cz.kalas.interview.task.gd.exception.NotFoundException;
 import cz.kalas.interview.task.gd.exception.SentenceStructureException;
 import cz.kalas.interview.task.gd.model.entity.Sentence;
-import cz.kalas.interview.task.gd.repository.SentenceRepository;
+import cz.kalas.interview.task.gd.repository.sentence.SentenceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

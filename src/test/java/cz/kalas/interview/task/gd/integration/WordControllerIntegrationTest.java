@@ -2,7 +2,7 @@ package cz.kalas.interview.task.gd.integration;
 
 import cz.kalas.interview.task.gd.TestUtils;
 import cz.kalas.interview.task.gd.model.WordCategory;
-import cz.kalas.interview.task.gd.repository.WordRepository;
+import cz.kalas.interview.task.gd.repository.word.WordRepository;
 import cz.kalas.interview.task.gd.service.WordService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

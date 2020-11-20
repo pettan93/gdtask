@@ -14,7 +14,8 @@ import java.util.Objects;
 public class WordSentenceUsage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WORD_USAGE_SEQ_GENERATOR")
+    @SequenceGenerator(name = "WORD_USAGE_SEQ_GENERATOR", sequenceName = "WORD_USAGE_SEQ", allocationSize = 100_000)
     private Long id;
 
     @ManyToOne()

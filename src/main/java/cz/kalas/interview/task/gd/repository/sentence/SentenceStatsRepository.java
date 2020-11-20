@@ -1,4 +1,4 @@
-package cz.kalas.interview.task.gd.repository;
+package cz.kalas.interview.task.gd.repository.sentence;
 
 import cz.kalas.interview.task.gd.model.entity.Sentence;
 import cz.kalas.interview.task.gd.model.entity.SentenceStats;

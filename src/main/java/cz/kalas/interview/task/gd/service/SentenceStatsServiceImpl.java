@@ -4,8 +4,8 @@ import cz.kalas.interview.task.gd.model.dto.DuplicateSentenceStats;
 import cz.kalas.interview.task.gd.model.entity.Sentence;
 import cz.kalas.interview.task.gd.model.entity.SentenceStats;
 import cz.kalas.interview.task.gd.model.projection.DuplicateSentenceEntry;
-import cz.kalas.interview.task.gd.repository.SentenceRepository;
-import cz.kalas.interview.task.gd.repository.SentenceStatsRepository;
+import cz.kalas.interview.task.gd.repository.sentence.SentenceRepository;
+import cz.kalas.interview.task.gd.repository.sentence.SentenceStatsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

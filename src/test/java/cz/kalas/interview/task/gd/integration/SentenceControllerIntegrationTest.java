@@ -6,8 +6,7 @@ import cz.kalas.interview.task.gd.domain.sentence.GoodDataSentenceValidator;
 import cz.kalas.interview.task.gd.domain.sentence.SentenceFactory;
 import cz.kalas.interview.task.gd.domain.sentence.SentenceValidator;
 import cz.kalas.interview.task.gd.model.entity.WordSentenceUsage;
-import cz.kalas.interview.task.gd.repository.SentenceRepository;
-import cz.kalas.interview.task.gd.service.SentenceService;
+import cz.kalas.interview.task.gd.repository.sentence.SentenceRepository;
 import cz.kalas.interview.task.gd.service.WordService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,9 +38,6 @@ public class SentenceControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Autowired
-    private SentenceService sentenceService;
 
     @Autowired
     private WordService wordService;

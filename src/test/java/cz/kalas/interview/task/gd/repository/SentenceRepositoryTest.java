@@ -3,6 +3,7 @@ package cz.kalas.interview.task.gd.repository;
 import cz.kalas.interview.task.gd.model.WordCategory;
 import cz.kalas.interview.task.gd.model.entity.Sentence;
 import cz.kalas.interview.task.gd.model.entity.Word;
+import cz.kalas.interview.task.gd.repository.sentence.SentenceRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;

@@ -2,6 +2,7 @@ package cz.kalas.interview.task.gd.repository;
 
 import cz.kalas.interview.task.gd.model.WordCategory;
 import cz.kalas.interview.task.gd.model.entity.Word;
+import cz.kalas.interview.task.gd.repository.word.WordRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

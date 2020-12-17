@@ -21,7 +21,7 @@ public class Word {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WORD_SEQ_GENERATOR")
-    @SequenceGenerator(name = "WORD_SEQ_GENERATOR", sequenceName = "WORD_SEQ", allocationSize = 100_000)
+    @SequenceGenerator(name = "WORD_SEQ_GENERATOR", sequenceName = "WORD_SEQ", allocationSize = 2000)
     private Long id;
 
     @Size(min = 1, max = 100, message = "Word text must be between {min} and {max}")

@@ -1,0 +1,2 @@
+ALTER SEQUENCE public.word_seq INCREMENT BY 2000;
+ALTER SEQUENCE public.word_usage_seq INCREMENT BY 2000;

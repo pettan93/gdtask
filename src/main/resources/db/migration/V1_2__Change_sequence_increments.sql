@@ -1,0 +1,1 @@
+ALTER SEQUENCE public.sentence_seq INCREMENT BY 2000;

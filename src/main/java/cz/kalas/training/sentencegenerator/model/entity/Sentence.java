@@ -26,7 +26,7 @@ public class Sentence {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SENTENCE_SEQ_GENERATOR")
-    @SequenceGenerator(name = "SENTENCE_SEQ_GENERATOR", sequenceName = "SENTENCE_SEQ", allocationSize = 100_000)
+    @SequenceGenerator(name = "SENTENCE_SEQ_GENERATOR", sequenceName = "SENTENCE_SEQ", allocationSize = 2000)
     private Long id;
 
     private LocalDateTime created;

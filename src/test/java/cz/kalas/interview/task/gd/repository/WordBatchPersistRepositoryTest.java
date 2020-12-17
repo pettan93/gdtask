@@ -3,6 +3,7 @@ package cz.kalas.interview.task.gd.repository;
 import cz.kalas.interview.task.gd.domain.word.RandomWordLoad;
 import cz.kalas.interview.task.gd.model.WordCategory;
 import cz.kalas.interview.task.gd.repository.word.WordRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,10 +27,12 @@ public class WordBatchPersistRepositoryTest {
     WordRepository wordRepository;
 
     @Test
+    @Disabled
     public void getRandomReturnsCorrectWord() {
         wordRepository.batchPersist(new ArrayList<>(new RandomWordLoad(100_000).getWords()));
         assertTrue(wordRepository.getRandom(WordCategory.NOUN).isPresent());
         // TODO implements assertions
+        // TODO measure runtime time
     }
 
 }

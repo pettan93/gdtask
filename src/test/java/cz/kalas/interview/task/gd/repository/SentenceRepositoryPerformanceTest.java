@@ -3,6 +3,7 @@ package cz.kalas.interview.task.gd.repository;
 import cz.kalas.interview.task.gd.TestUtils;
 import cz.kalas.interview.task.gd.model.entity.Word;
 import cz.kalas.interview.task.gd.repository.sentence.SentenceRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -23,12 +24,13 @@ public class SentenceRepositoryPerformanceTest {
     @Autowired
     SentenceRepository sentenceRepository;
 
-
     @Test
+    @Disabled
     public void batchGenerateSentences() {
         List<Word> dummyWords = TestUtils.getDummyWords(100_000);
         sentenceRepository.batchPersist(new ArrayList<>());
         // TODO implement asserts
+        // TODO measure runtime time
     }
 
 

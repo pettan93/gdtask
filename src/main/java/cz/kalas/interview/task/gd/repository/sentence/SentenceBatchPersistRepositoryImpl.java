@@ -26,5 +26,6 @@ public class SentenceBatchPersistRepositoryImpl implements SentenceBatchPersistR
     @Override
     public void batchPersist(List<Sentence> sentences) {
         // todo implement
+        throw new IllegalStateException("Not implemented yet");
     }
 }

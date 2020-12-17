@@ -8,6 +8,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Represents batch of random words of desired size
+ */
 public class RandomWordLoad implements WordLoad {
 
     private final int size;

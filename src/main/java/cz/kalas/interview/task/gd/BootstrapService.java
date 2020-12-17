@@ -21,13 +21,12 @@ public class BootstrapService {
 
     public static String FORBIDDEN_WORDS_FILENAME = "forbidden.txt";
 
-    @Value("${app.random.words}")
-    public final int randomWords;
-
     private final WordService wordService;
 
     private final WordRepository wordRepository;
 
+    @Value("${app.random.words}")
+    public Integer randomWords;
 
     @EventListener(ApplicationReadyEvent.class)
     public void applicationPreparedEventListener() {

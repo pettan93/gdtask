@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GdApplication {
+public class SentenceGeneratorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GdApplication.class, args);
+		SpringApplication.run(SentenceGeneratorApplication.class, args);
 	}
 
 }

@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'cz.kalas.interview.task'
+group = 'cz.kalas.training.sentencegenerator'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 

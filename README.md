@@ -40,7 +40,7 @@ docker-compose -f docker-compose-ha.yml up --scale api=3
 Or run jar directly (Docker still needed for Postgres)
 ```
 docker run --name db -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=db -d postgres:13.0
-java -jar build\libs\gd-0.0.1-SNAPSHOT.jar
+java -jar build\libs\sentenceGenerator-0.0.1-SNAPSHOT.jar
 ```
 
 ### Notes

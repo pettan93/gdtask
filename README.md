@@ -1,5 +1,21 @@
-# task
+# Sentence Generator API Task
 
+## Assignment
+The system will be a simple webapp exposing REST API acting as a generator of the sentences
+from the words inserted to it by rules described below. 
+
+You can input any word to the system but
+you need to specify its part of speech - NOUN or VERB or OBJECTIVE.
+The system must be able to generate a sentence from the words according to the rule that
+sentence is in the form of NOUN VERB ADJECTIVE. Further description of resources /
+functionality is available in the next part - API proposal (_omitted for brevity_).
+
+Optionals
+- Get list of forbidden words from file and reject them on API
+- Track number and id of exactly the same generated sentences (separate resource - introduce one)
+- You can see the number of view of the specific sentence
+
+## Solution
 ### Prerequisites
  - Docker
  - JDK 11
@@ -23,7 +39,7 @@ docker-compose -f docker-compose-ha.yml up --scale api=3
 ```
 Or run jar directly (Docker still needed for Postgres)
 ```
-docker run --name db --port 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=db -d postgres:13.0
+docker run --name db -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=db -d postgres:13.0
 java -jar build\libs\gd-0.0.1-SNAPSHOT.jar
 ```
 
@@ -165,7 +181,6 @@ Response
             "text": "dog walks slowly",
             "duplicateCount": 2,
             "duplicateSentencesIds": [7, 8]
-            ]
         }
     },
     {
@@ -173,7 +188,6 @@ Response
             "text": "cat drinks slowly",
             "duplicateCount": 3,
             "duplicateSentencesIds": [2, 3, 4]
-            ]
         }
     }
 ]

@@ -1,6 +1,6 @@
-# Sentence Generator API Task
+# Sentence Generator API
 
-## Assignment
+## Original assignment
 The system will be a simple webapp exposing REST API acting as a generator of the sentences
 from the words inserted to it by rules described below. 
 
@@ -8,12 +8,12 @@ You can input any word to the system but
 you need to specify its part of speech - NOUN or VERB or OBJECTIVE.
 The system must be able to generate a sentence from the words according to the rule that
 sentence is in the form of NOUN VERB ADJECTIVE. Further description of resources /
-functionality is available in the next part - API proposal (_omitted for brevity_).
+functionality is available in the next part - API proposal (api proposal omitted for brevity as solution api reference exactly reflects what was required).
 
 Optionals
-- Get list of forbidden words from file and reject them on API
-- Track number and id of exactly the same generated sentences (separate resource - introduce one)
-- You can see the number of view of the specific sentence
+- [x] Get list of forbidden words from file and reject them on API
+- [x] Track number and id of exactly the same generated sentences (separate resource - introduce one)
+- [x] You can see the number of view of the specific sentence
 
 ## Solution
 ### Prerequisites
